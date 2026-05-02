@@ -29,6 +29,26 @@ footer{text-align:center;padding:42px;color:var(--muted)}
 .fixed{position:fixed;right:18px;bottom:18px;padding:16px 22px;border-radius:999px;background:#25d366;color:#fff;text-decoration:none;font-weight:900;box-shadow:0 18px 40px rgba(0,0,0,.22)}
 @media(max-width:1024px){.hero,.grid,.operadoras,.planwrap,.stats{grid-template-columns:1fr}h1{font-size:44px}.photo{height:420px}}
 @media(max-width:768px){form[onsubmit="enviarCotacao(event)"]{grid-template-columns:1fr !important}.btn,.navbtn{width:100%;text-align:center}.container{padding:18px}h1{font-size:36px}h2{font-size:30px}}
+
+.carousel{
+  position:relative;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  border-radius:28px;
+}
+.carousel img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1s ease-in-out;
+}
+.carousel img.active{
+  opacity:1;
+}
+
 </style>
 </head>
 <body>
@@ -50,7 +70,13 @@ footer{text-align:center;padding:42px;color:var(--muted)}
 <div class="stat"><div class="n">Rápido</div>Retorno imediato</div>
 </div>
 </div>
-<div class="hero-card"><div class="photo">INSIRA FOTO EXECUTIVA DA MIRIAM</div></div>
+<div class="photo">
+  <div class="carousel">
+    <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b" class="active">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e">
+  </div>
+</div>
 </section>
 <section>
 <h2>Por que clientes exigentes escolhem Miriam</h2>
@@ -101,6 +127,16 @@ footer{text-align:center;padding:42px;color:var(--muted)}
 <a class="fixed" href="https://wa.me/5521964463993">WhatsApp</a>
 <script>
 function enviarCotacao(e){e.preventDefault();var nome=document.getElementById('nome').value;var idade=document.getElementById('idade').value;var tipo=document.getElementById('tipo').value;var vidas=document.getElementById('vidas').value;var msg='Olá Miriam, quero simular cotação.%0ANome: '+nome+'%0AIdade: '+idade+'%0ATipo: '+tipo+'%0AQuantidade de vidas: '+vidas;window.open('https://wa.me/5521964463993?text='+msg,'_blank');}
+
+const slides = document.querySelectorAll('.carousel img');
+let index = 0;
+
+setInterval(()=>{
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 3000);
+
 </script>
 </body>
 </html>
