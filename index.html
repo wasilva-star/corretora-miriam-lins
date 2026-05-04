@@ -199,14 +199,15 @@ box-shadow:0 20px 60px rgba(0,0,0,.15);
 }
 
 .ads-track{
-display:flex;
-width:max-content;
-animation:scrollAds 15s linear infinite;
+  display:flex;
+  width:calc(320px * 6); /* 6 itens (3 + 3 duplicados) */
+  animation:scrollAds 18s linear infinite;
 }
 
 .ad{
 min-width:320px;
 height:180px; /* ajuste fino aqui */
+position:relative;
 }
 
 .ad img{
@@ -260,33 +261,33 @@ font-size:16px;
   <div class="ads-track">
     
     <div class="ad">
-      <img src="/img/lab-img-01.jpg">
+      <img src="img/lab-img-01.jpg">
       <div class="ad-text"></div>
     </div>
 
     <div class="ad">
-      <img src="/img/lab-img-02.jpg">
+      <img src="img/lab-img-02.jpg">
       <div class="ad-text"></div>
     </div>
 
     <div class="ad">
-      <img src="/img/lab-img-03.jpg">
+      <img src="img/lab-img-03.jpg">
       <div class="ad-text"></div>
     </div>
 
     <!-- duplicado para efeito infinito -->
     <div class="ad">
-      <img src="/img/lab-img-01.jpg">
+      <img src="img/lab-img-01.jpg">
       <div class="ad-text"></div>
     </div>
 
     <div class="ad">
-      <img src="/img/lab-img-02.jpg">
+      <img src="img/lab-img-02.jpg">
       <div class="ad-text"></div>
     </div>
 
     <div class="ad">
-      <img src="/img/lab-img-03.jpg">
+      <img src="img/lab-img-03.jpg">
       <div class="ad-text"></div>
     </div>
 
