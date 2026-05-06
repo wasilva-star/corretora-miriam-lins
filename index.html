@@ -806,7 +806,9 @@ input.value="";
 setTimeout(()=>responder(msg),1000);
 }
 
-/* FLUXO INTELIGENTE */
+/* =========================
+   FLUXO INTELIGENTE
+========================= */
 function responder(msg){
 typing();
 
@@ -815,34 +817,50 @@ removeTyping();
 
 if(etapa === 0){
 nomeLead = msg;
-addMessage("Prazer, "+nomeLead+" 😊 Você busca plano individual empresarial, familiar, PME, Pjotinha ou adesão?", "bot");
+
+addMessage("Prazer, "+nomeLead+" 😊 Você busca plano individual, empresarial, familiar, PME, Pjotinha ou adesão?", "bot");
 etapa = 1;
 }
+
 else if(etapa === 1){
+tipoPlano = msg;
+
 addMessage("Perfeito! Quantas vidas seriam aproximadamente?", "bot");
 etapa = 2;
 }
+
 else if(etapa === 2){
-addMessage("Ótimo! Vou montar uma simulação personalizada pra você 👇", "bot");
+vidasPlano = msg;
+
+addMessage("Ótimo! Já montei sua pré-cotação 👇", "bot");
 
 setTimeout(()=>{
-addMessage("👉 Clique aqui para falar comigo no WhatsApp e receber sua cotação agora:", "bot");
+
+addMessage("👉 Clique abaixo para receber sua cotação completa no WhatsApp:", "bot");
+
+let mensagem = `Olá Miriam, quero cotação:%0A
+Nome: ${nomeLead}%0A
+Tipo: ${tipoPlano}%0A
+Quantidade de vidas: ${vidasPlano}`;
 
 const link = document.createElement("a");
-link.href = "https://wa.me/5521965987968?text=Olá, sou "+nomeLead+" e quero cotação";
+link.href = "https://wa.me/5521965987968?text=" + mensagem;
 link.target = "_blank";
-link.innerText = "Abrir WhatsApp";
+link.innerText = "Receber cotação no WhatsApp";
 link.style.display = "block";
 link.style.marginTop = "8px";
 link.style.color = "#25d366";
+link.style.fontWeight = "bold";
+
 chat.appendChild(link);
 
 },1200);
 
 etapa = 3;
 }
+
 else{
-addMessage("Clique no link acima para continuar no WhatsApp 😉", "bot");
+addMessage("Clique no botão acima para continuar no WhatsApp 😉", "bot");
 }
 
 },1500);
