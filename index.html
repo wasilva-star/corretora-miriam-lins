@@ -231,21 +231,43 @@ box-shadow:0 20px 60px rgba(0,0,0,.15);
   animation:scrollAds 18s linear infinite;
 }
 
-.ad{
-min-width:320px;
-height:180px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:transparent;
-}
+```css id="4gkq28"
+/* AJUSTE MOBILE DO CARROSSEL */
+
 
 .ad img{
 width:100%;
 height:100%;
-object-fit:cover;
+object-fit:contain; /* não corta */
 object-position:center;
+display:block;
+transition:transform .5s ease;
+background:#fff;
+padding:4px;
 }
+
+/* MELHOR AJUSTE MOBILE */
+@media(max-width:768px){
+
+.ad{
+width:280px;
+height:170px; /* aumenta altura */
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:6px;
+}
+
+.ad img{
+object-fit:contain;
+width:100%;
+height:100%;
+}
+
+}
+```
+
 
 .ad-text{
 position:absolute;
