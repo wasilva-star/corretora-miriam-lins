@@ -227,47 +227,25 @@ box-shadow:0 20px 60px rgba(0,0,0,.15);
 
 .ads-track{
   display:flex;
-  width:calc(320px * 14); /* 7 itens (7 + 7 duplicados) */
+  width:calc(320px * 10); /* 5 itens (5 + 5 duplicados) */
   animation:scrollAds 18s linear infinite;
 }
 
-```css id="4gkq28"
-/* AJUSTE MOBILE DO CARROSSEL */
-
-
-.ad img{
-width:100%;
-height:100%;
-object-fit:contain; /* não corta */
-object-position:center;
-display:block;
-transition:transform .5s ease;
-background:#fff;
-padding:4px;
-}
-
-/* MELHOR AJUSTE MOBILE */
-@media(max-width:768px){
-
 .ad{
-width:280px;
-height:170px; /* aumenta altura */
-background:#fff;
+min-width:320px;
+height:180px;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:6px;
+background:transparent;
 }
 
 .ad img{
-object-fit:contain;
 width:100%;
 height:100%;
+object-fit:cover;
+object-position:center;
 }
-
-}
-```
-
 
 .ad-text{
 position:absolute;
@@ -508,6 +486,52 @@ cursor:pointer;
 <div class="ads-carousel">
   <div class="ads-track">
 
+<div class="ad">
+      <img src="img/miriam-dia-das-maes-01.png">
+      <div class="ad-text"></div>
+    </div>
+
+    <div class="ad">
+      <img src="img/miriam-dia-das-maes-02.png">
+      <div class="ad-text"></div>
+    </div>
+    
+    <div class="ad">
+      <img src="img/banner_1.png">
+      <div class="ad-text"></div>
+    </div>
+
+    <div class="ad">
+      <img src="img/banner_2.png">
+      <div class="ad-text"></div>
+    </div>
+
+    <div class="ad">
+      <img src="img/banner_3.png">
+      <div class="ad-text"></div>
+    </div>
+    
+    <div class="ad">
+      <img src="img/ad-miriam-3.png">
+      <div class="ad-text"></div>
+    </div>
+
+    <div class="ad">
+      <img src="img/ad-miriam-4.png">
+      <div class="ad-text"></div>
+    </div>
+
+    <!-- duplicado para efeito infinito -->
+
+    <div class="ad">
+      <img src="img/miriam-dia-das-maes-01.png">
+      <div class="ad-text"></div>
+    </div>
+
+    <div class="ad">
+      <img src="img/miriam-dia-das-maes-02.png">
+      <div class="ad-text"></div>
+    </div>
 
     <div class="ad">
       <img src="img/banner_1.png">
@@ -523,33 +547,6 @@ cursor:pointer;
       <img src="img/banner_3.png">
       <div class="ad-text"></div>
     </div>
-
-    <div class="ad">
-      <img src="img/ad-miriam-4.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/miriam-dia-das-maes-01.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/miriam-dia-das-maes-02.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <!-- duplicado para efeito infinito -->
-
-    <div class="ad">
-      <img src="img/banner_1.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/banner_2.png">
-      <div class="ad-text"></div>
-    </div>
     
     <div class="ad">
       <img src="img/ad-miriam-3.png">
@@ -558,16 +555,6 @@ cursor:pointer;
 
     <div class="ad">
       <img src="img/ad-miriam-4.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/miriam-dia-das-maes-01.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/miriam-dia-das-maes-02.png">
       <div class="ad-text"></div>
     </div>
 
