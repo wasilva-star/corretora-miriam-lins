@@ -1,1105 +1,1522 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Miriam Lins | Consultoria Executiva em Planos de Saúde</title>
-
-<!--AQUI COMEÇA A PÁGINA DE STILO-->
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-:root{--red:#48044ebd;--blue:#4b054b;--green:#b409b9;--gold:#cea622;--dark:#0b1220;--muted:#64748b;--line:#e7eaf0}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --rose:#8b0a3c;
+  --rose-light:#b01550;
+  --rose-pale:#fff0f5;
+  --gold:#c9913d;
+  --gold-light:#e8b96a;
+  --cream:#fdf8f2;
+  --ink:#1a0a0f;
+  --muted:#7a6070;
+  --border:rgba(139,10,60,0.1);
+  --border-gold:rgba(201,145,61,0.25);
+  --white:#ffffff;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#fa04b031 0%, #ffe4ec 40%, #ffd6e4 100%);
-color:#111827;
-overflow-x:hidden;
-}
-body:before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 10% 20%,rgba(177,17,46,.08),transparent 25%),radial-gradient(circle at 90% 10%,rgba(0,59,149,.08),transparent 25%),radial-gradient(circle at 80% 80%,rgba(15,157,105,.08),transparent 25%);pointer-events:none}
-.container{
-max-width:1280px;
-margin:auto;
-padding:10px 28px 28px;
-}
-header{display:flex;justify-content:space-between;align-items:center;padding:16px 0;gap:20px;flex-wrap:wrap}
-.logo{font-size:36px;font-weight:900;letter-spacing:.3px}.logo span{background:linear-gradient(90deg,var(--red),var(--blue),var(--green));-webkit-background-clip:text;color:transparent}
-.navbtn,.btn{display:inline-block;padding:16px 26px;border-radius:16px;text-decoration:none;font-weight:800;color:#fff;background:linear-gradient(90deg,var(--red),var(--blue),var(--green));box-shadow:0 18px 40px rgba(0,59,149,.18);transition:.35s}.btn:hover,.navbtn:hover{transform:translateY(-4px) scale(1.02)}
-.hero{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center;padding:78px 0}
-.badge{display:inline-block;padding:10px 18px;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:800;color:var(--blue);box-shadow:0 10px 24px rgba(0,0,0,.05);margin-bottom:18px}
-h1{font-size:64px;line-height:1.02;margin-bottom:18px;color:var(--dark)}
-.hero p{font-size:22px;line-height:1.65;color:var(--muted);margin-bottom:28px}
-.hero-card{background:linear-gradient(160deg,#ffffff,#f8fafc);border:1px solid var(--line);border-radius:34px;padding:18px;box-shadow:0 30px 70px rgba(15,23,42,.10)}
-.photo{height:560px;border-radius:28px;background:linear-gradient(135deg,#eef2ff,#ffffff,#ecfeff);display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:800}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}.stat{background:#fff;border:1px solid var(--line);padding:18px;border-radius:20px;text-align:center}.n{font-size:30px;font-weight:900;color:var(--dark)}
-section{margin:34px 0}h2{font-size:40px;margin-bottom:18px;color:var(--dark)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fff;border:1px solid var(--line);padding:30px;border-radius:28px;box-shadow:0 18px 40px rgba(0,0,0,.05)}.card strong{display:block;font-size:21px;margin-bottom:10px}
-.operadoras{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.mini{background:#fff;border:1px solid var(--line);padding:20px;border-radius:20px;text-align:center;font-weight:900}
-.planwrap{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.plan{padding:34px;border-radius:28px;color:#fff;background:linear-gradient(135deg,var(--red),var(--blue),var(--green));box-shadow:0 22px 55px rgba(0,0,0,.14)}
-.cta{padding:40px;border-radius:32px;background:linear-gradient(135deg,#ffffff,#f8fafc);border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.06)}
-footer{text-align:center;padding:42px;color:var(--muted)}
-.fixed{
-position:fixed;
-right:18px;
-bottom:18px;
-width:65px;
-height:65px;
-border-radius:50%;
-background:#25d366;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 15px 40px rgba(0,0,0,.25);
-z-index:999;
-transition:.3s;
+  font-family:'Outfit',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
 }
 
-.fixed svg{
-width:30px;
-height:30px;
-fill:#fff;
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--rose);border-radius:99px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  z-index:200;
+  background:rgba(253,248,242,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 5vw;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.fixed:hover{
-transform:scale(1.1);
-box-shadow:0 20px 50px rgba(0,0,0,.35);
+.nav-brand{
+  display:flex;align-items:center;gap:14px;
 }
-@media(max-width:1024px){.hero,.grid,.operadoras,.planwrap,.stats{grid-template-columns:1fr}h1{font-size:44px}.photo{height:420px}}
-@media(max-width:768px){form[onsubmit="enviarCotacao(event)"]{grid-template-columns:1fr !important}.btn,.navbtn{width:100%;text-align:center}.container{padding:18px}h1{font-size:36px}h2{font-size:30px}}
 
-.carousel{
-  position:relative;
-  width:100%;
-  height:100%;
+.nav-avatar{
+  width:44px;height:44px;border-radius:50%;
+  border:2px solid var(--gold);
+  object-fit:cover;
+  background:linear-gradient(135deg,var(--rose),var(--rose-light));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:600;font-size:16px;
   overflow:hidden;
-  border-radius:28px;
-  background:linear-gradient(#ffdde8);
 }
 
-.carousel img{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:contain; /* 🔥 não corta mais */
-  object-position:center;
-  opacity:0;
-  transition:opacity 1s ease-in-out;
+.nav-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+.nav-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:600;
+  color:var(--rose);
+  line-height:1.1;
 }
 
-.carousel img.active{
-  opacity:1;
+.nav-role{
+  font-size:0.65rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--muted);
 }
 
-
-
-
-.logo-wrap{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
+.nav-links{
+  display:flex;align-items:center;gap:2rem;
+  list-style:none;
 }
 
-/* BORDA INSTAGRAM */
-.insta-border{
-width:120px;
-height:120px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:conic-gradient(
-#feda75,
-#fa7e1e,
-#d62976,
-#962fbf,
-#4f5bd5,
-#feda75
-);
-animation:rotateBorder 6s linear infinite;
-padding:4px;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
+.nav-links a{
+  font-size:0.85rem;font-weight:500;
+  letter-spacing:0.05em;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color 0.3s;
 }
 
-/* IMAGEM INTERNA */
-.logo-img{
-width:100%;
-height:100%;
-border-radius:50%;
-object-fit:cover;
-background:#fff;
+.nav-links a:hover{color:var(--rose)}
+
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--rose);
+  color:#fff !important;
+  padding:10px 22px;
+  border-radius:99px;
+  font-size:0.82rem !important;
+  font-weight:600 !important;
+  transition:background 0.3s, transform 0.2s !important;
+  letter-spacing:0.03em !important;
 }
 
-.insta-border{
-animation:glow 2.5s ease-in-out infinite alternate;
+.nav-cta:hover{background:var(--rose-light) !important;transform:translateY(-1px)}
+
+/* ── ONLINE DOT ── */
+.online-dot{
+  width:9px;height:9px;
+  background:#22c55e;
+  border-radius:50%;
+  border:2px solid #fff;
+  box-shadow:0 0 0 0 rgba(34,197,94,0.6);
+  animation:pingOnline 2s infinite;
+  display:inline-block;
+  margin-right:4px;
 }
 
-@keyframes glow{
-from{
-box-shadow:0 0 10px rgba(214,41,118,.4), 0 0 20px rgba(79,91,213,.3);
-}
-to{
-box-shadow:0 0 20px rgba(214,41,118,.7), 0 0 40px rgba(79,91,213,.5);
-}
+@keyframes pingOnline{
+  0%{box-shadow:0 0 0 0 rgba(34,197,94,0.6)}
+  70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}
+  100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
 }
 
-
-.social{
-margin-top:20px;
-display:flex;
-justify-content:center;
-gap:18px;
+/* ── BANNER DIGITAÇÃO ── */
+.typing-banner{
+  margin-top:72px;
+  background:linear-gradient(90deg,var(--rose),var(--rose-light),#c4455a);
+  color:#fff;
+  text-align:center;
+  padding:14px 20px;
+  font-size:0.88rem;
+  font-weight:500;
+  letter-spacing:0.05em;
+  min-height:48px;
+  display:flex;align-items:center;justify-content:center;
 }
 
-.social a{
-width:48px;
-height:48px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-background:#fff;
-box-shadow:0 10px 25px rgba(0,0,0,.12);
-transition:.3s;
+.typing-banner .cursor{
+  display:inline-block;
+  width:2px;height:1em;
+  background:#fff;
+  margin-left:2px;
+  vertical-align:text-bottom;
+  animation:blink 0.8s step-end infinite;
 }
 
-.social a svg{
-width:22px;
-height:22px;
-fill:#cc092f;
-}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 
-.social a:hover{
-transform:translateY(-5px) scale(1.1);
-box-shadow:0 15px 35px rgba(0,0,0,.18);
-}
-
-
-
-/* BANNER DIGITAÇÃO */
-.top-banner{
-height:80px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(90deg,#0c09cc7a,#b3002d50);
-color:#fff;
-border-radius:20px;
-margin:10px;
-}
-
-.top-banner{
-margin-top:0px;
-}
-
-body, html{
-margin:0;
-padding:0;
-}
-
-header{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-padding:10px 0 20px;
-gap:12px;
-}
-
-#particles{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
-pointer-events:none;
-
-}
-
-.ads-carousel{
-width:100%;
-overflow:hidden;
-margin:20px 0;
-border-radius:24px;
-box-shadow:0 20px 60px rgba(0,0,0,.15);
+/* ── ADS CAROUSEL ── */
+.ads-strip{
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+  background:#fff;
+  height:160px;
 }
 
 .ads-track{
   display:flex;
-  width:calc(320px * 10); /* 5 itens (5 + 5 duplicados) */
-  animation:scrollAds 18s linear infinite;
+  width:calc(280px * 10);
+  animation:slideAds 22s linear infinite;
+  height:100%;
 }
 
-.ad{
-min-width:320px;
-height:180px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:transparent;
+@keyframes slideAds{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.ad-item{
+  min-width:280px;height:160px;
+  overflow:hidden;
+  border-right:1px solid var(--border);
 }
 
-.ad img{
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center;
+.ad-item img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 0.5s;
 }
 
-.ad-text{
-position:absolute;
-bottom:12px;
-left:16px;
-right:16px;
-color:#a10f0f;
-font-weight:700;
-font-size:16px;
+.ad-item:hover img{transform:scale(1.05)}
+
+/* ── HERO ── */
+.hero{
+  padding:80px 5vw 80px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:center;
+  max-width:1300px;
+  margin:0 auto;
 }
 
-@keyframes scrollAds{
-0%{transform:translateX(0)}
-100%{transform:translateX(-50%)}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;
+  border:1px solid var(--border-gold);
+  border-radius:99px;
+  padding:6px 16px;
+  font-size:0.75rem;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:24px;
 }
 
-/* WRAP DO STATUS */
-.status-wrap{
-position:relative;
-width:100%;
-height:100%;
-border-radius:50%;
-overflow:visible; /*  permite sair */
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,4.5vw,3.8rem);
+  font-weight:700;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:20px;
 }
 
-/* BOLINHA ONLINE */
-.status-dot{
-position:absolute;
-bottom:-0px; /* 🔥 joga pra fora */
-right:-0px;  /* 🔥 joga pra fora */
-width:18px;
-height:18px;
-background:#22c55e;
-border:3px solid #fff;
-border-radius:50%;
-box-shadow:0 0 0 rgba(34,197,94,0.7);
-animation:pulseOnline 2s infinite;
-z-index:2;
+.hero h1 em{
+  font-style:italic;
+  color:var(--rose);
 }
 
-/* TEXTO ONLINE */
-.status-text{
-font-size:14px;
-color:#22c55e;
-font-weight:700;
-margin-top:4px;
+.hero-desc{
+  font-size:1rem;
+  font-weight:300;
+  line-height:1.8;
+  color:var(--muted);
+  margin-bottom:36px;
+  max-width:44ch;
 }
 
-/* ANIMAÇÃO PULSO */
-@keyframes pulseOnline{
-0%{
-box-shadow:0 0 0 0 rgba(34,197,94,0.7);
-}
-70%{
-box-shadow:0 0 0 10px rgba(34,197,94,0);
-}
-100%{
-box-shadow:0 0 0 0 rgba(34,197,94,0);
-}
-}
-
-.chat-btn{
-position:fixed;
-bottom:90px;
-right:20px;
-width:60px;
-height:60px;
-background:linear-gradient(135deg,#25d366,#128c7e);
-color:#fff;
-font-size:28px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-box-shadow:0 10px 30px rgba(0,0,0,.3);
-z-index:999;
-animation:pulse 2s infinite;
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--rose);
+  color:#fff;
+  padding:16px 34px;
+  border-radius:99px;
+  font-size:0.88rem;
+  font-weight:600;
+  letter-spacing:0.05em;
+  text-decoration:none;
+  transition:background 0.3s, transform 0.25s, box-shadow 0.3s;
+  box-shadow:0 12px 35px rgba(139,10,60,0.28);
 }
 
-@keyframes pulse{
-0%{transform:scale(1)}
-50%{transform:scale(1.08)}
-100%{transform:scale(1)}
+.btn-primary:hover{
+  background:var(--rose-light);
+  transform:translateY(-3px);
+  box-shadow:0 18px 45px rgba(139,10,60,0.35);
 }
 
-.chat-box{
-position:fixed;
-bottom:160px;
-right:20px;
-width:340px;
-height:460px;
-background:#fff;
-border-radius:20px;
-box-shadow:0 25px 70px rgba(0,0,0,.35);
-display:none;
-flex-direction:column;
-overflow:hidden;
-z-index:999;
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;
+  color:var(--rose);
+  padding:15px 30px;
+  border-radius:99px;
+  border:1.5px solid var(--rose);
+  font-size:0.88rem;
+  font-weight:600;
+  letter-spacing:0.05em;
+  text-decoration:none;
+  transition:all 0.3s;
 }
 
-.chat-header{
-background:linear-gradient(90deg,#25d366,#128c7e);
-color:#fff;
-padding:14px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+.btn-secondary:hover{
+  background:var(--rose-pale);
+  transform:translateY(-2px);
 }
 
-.chat-user{
-display:flex;
-align-items:center;
-gap:10px;
+.hero-actions{
+  display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+  margin-bottom:48px;
 }
 
-.chat-user img{
-width:42px;
-height:42px;
-border-radius:50%;
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
 }
 
-.online{
-font-size:12px;
-opacity:.9;
+.stat-box{
+  background:#fff;
+  padding:20px;
+  text-align:center;
 }
 
-.chat-messages{
-flex:1;
-padding:12px;
-overflow-y:auto;
-display:flex;
-flex-direction:column;
-gap:10px;
-background:#f0f2f5;
+.stat-box .n{
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;
+  font-weight:700;
+  color:var(--rose);
+  line-height:1;
+  display:block;
 }
 
-.msg{
-padding:10px 14px;
-border-radius:14px;
-max-width:80%;
-font-size:14px;
+.stat-box span:last-child{
+  font-size:0.72rem;
+  font-weight:500;
+  color:var(--muted);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-top:4px;
+  display:block;
 }
 
-.bot{background:#fff;align-self:flex-start}
-.user{background:#dcf8c6;align-self:flex-end}
-
-.typing{
-font-style:italic;
-opacity:.7;
+/* HERO PHOTO */
+.hero-visual{
+  position:relative;
 }
 
-.chat-input{
-display:flex;
-border-top:1px solid #ddd;
+.hero-card-wrap{
+  background:#fff;
+  border:1px solid var(--border-gold);
+  border-radius:32px;
+  padding:12px;
+  box-shadow:0 40px 80px rgba(139,10,60,0.12);
 }
 
-.chat-input input{
-flex:1;
-padding:12px;
-font-size:16px; /*impede o zoom no mobile */
-flex:1;
-padding:14px;
-border:none;
-outline:none;
-font-size:16px;
-border-radius:0;
-border:none;
-outline:none;
+.carousel{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/5;
+  border-radius:24px;
+  overflow:hidden;
+  background:var(--rose-pale);
 }
 
-.chat-input button{
-background:#25d366;
-color:#fff;
-border:none;
-padding:0 16px;
-cursor:pointer;
+.carousel img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:contain;
+  opacity:0;
+  transition:opacity 1.2s ease-in-out;
 }
 
-  /* MENU PREMIUM */
-.top-menu{
-display:flex;
-gap:14px;
-flex-wrap:wrap;
-justify-content:center;
-align-items:center;
-margin-top:10px;
+.carousel img.active{opacity:1}
+
+.hero-badge{
+  position:absolute;
+  bottom:-16px;left:50%;
+  transform:translateX(-50%);
+  background:var(--gold);
+  color:#fff;
+  padding:10px 24px;
+  border-radius:99px;
+  font-size:0.75rem;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  box-shadow:0 8px 25px rgba(201,145,61,0.4);
 }
 
-.top-menu a{
-text-decoration:none;
-padding:12px 22px;
-border-radius:14px;
-background:rgba(255,255,255,.7);
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,.4);
-color:#7a0f2a;
-font-weight:700;
-font-size:15px;
-transition:.3s;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+/* ── DIVIDER ── */
+.section-divider{
+  width:60px;height:3px;
+  background:linear-gradient(90deg,var(--rose),var(--gold));
+  border-radius:99px;
+  margin:0 auto 48px;
 }
 
-.top-menu a:hover{
-transform:translateY(-3px);
-background:linear-gradient(90deg,#d90429,#7b0f1e);
-color:#fff;
-box-shadow:0 15px 35px rgba(0,0,0,.18);
+/* ── SECTIONS ── */
+.section{
+  padding:80px 5vw;
+  max-width:1300px;
+  margin:0 auto;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-
-.top-menu{
-width:100%;
-gap:10px;
+.section-header{
+  text-align:center;
+  margin-bottom:56px;
 }
 
-.top-menu a{
-flex:1;
-text-align:center;
-padding:12px;
-font-size:14px;
+.section-label{
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:block;
+  margin-bottom:12px;
 }
 
+.section h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.2;
+  margin-bottom:16px;
 }
 
-/* =========================
-   SESSÃO DE VÍDEOS
-========================= */
-
-.videos-section{
-margin:60px 0;
-padding:40px;
-border-radius:32px;
-background:linear-gradient(135deg,#ffffff,#fff0f7);
-border:1px solid rgba(255,255,255,.5);
-box-shadow:0 25px 70px rgba(0,0,0,.08);
+.section-sub{
+  font-size:1rem;
+  color:var(--muted);
+  max-width:52ch;
+  margin:0 auto;
+  line-height:1.7;
 }
 
-.videos-section h2{
-text-align:center;
-margin-bottom:12px;
-font-size:42px;
-color:#111827;
+/* ── DIFERENCIAIS ── */
+.diferenciais-bg{
+  background:#fff;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
 }
 
-.videos-subtitle{
-text-align:center;
-font-size:18px;
-color:#64748b;
-margin-bottom:35px;
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.feature-card{
+  background:var(--cream);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:36px 28px;
+  transition:transform 0.4s, box-shadow 0.4s, border-color 0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.feature-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(139,10,60,0.04),transparent);
+  opacity:0;
+  transition:opacity 0.4s;
+}
+
+.feature-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 24px 56px rgba(139,10,60,0.10);
+  border-color:rgba(139,10,60,0.2);
+}
+
+.feature-card:hover::before{opacity:1}
+
+.feature-icon{
+  width:52px;height:52px;
+  border-radius:16px;
+  background:var(--rose-pale);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+  font-size:22px;
+}
+
+.feature-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:700;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+
+.feature-card p{
+  font-size:0.9rem;color:var(--muted);line-height:1.7;
+}
+
+/* ── OPERADORAS ── */
+.ops-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+}
+
+.op-card{
+  background:#fff;
+  border:1px solid var(--border-gold);
+  border-radius:18px;
+  padding:24px 16px;
+  text-align:center;
+  font-weight:700;
+  font-size:0.9rem;
+  color:var(--rose);
+  letter-spacing:0.05em;
+  transition:all 0.3s;
+  cursor:default;
+}
+
+.op-card:hover{
+  background:var(--rose);
+  color:#fff;
+  border-color:var(--rose);
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(139,10,60,0.25);
+}
+
+/* ── PLANOS ── */
+.planos-bg{
+  background:var(--ink);
+}
+
+.planos-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.plano-card{
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:28px;
+  padding:40px 36px;
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.4s, box-shadow 0.4s;
+}
+
+.plano-card::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at top left, rgba(201,145,61,0.15), transparent 60%);
+  pointer-events:none;
+}
+
+.plano-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 32px 64px rgba(0,0,0,0.4);
+}
+
+.plano-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:14px;
+}
+
+.plano-card p{
+  font-size:0.9rem;
+  color:rgba(255,255,255,0.6);
+  line-height:1.7;
+  margin-bottom:28px;
+}
+
+.plano-tag{
+  display:inline-flex;align-items:center;
+  background:rgba(201,145,61,0.2);
+  border:1px solid rgba(201,145,61,0.3);
+  color:var(--gold-light);
+  padding:6px 14px;
+  border-radius:99px;
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.plano-items{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.plano-items li{
+  display:flex;align-items:center;gap:10px;
+  font-size:0.88rem;
+  color:rgba(255,255,255,0.75);
+}
+
+.plano-items li::before{
+  content:'✓';
+  width:20px;height:20px;
+  border-radius:50%;
+  background:rgba(201,145,61,0.25);
+  color:var(--gold-light);
+  font-size:0.7rem;
+  font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+/* ── DEPOIMENTOS ── */
+.reviews-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.review-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:32px 28px;
+  transition:transform 0.4s, box-shadow 0.4s;
+}
+
+.review-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 50px rgba(139,10,60,0.08);
+}
+
+.stars{color:var(--gold);font-size:0.9rem;margin-bottom:16px;letter-spacing:2px}
+
+.review-text{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;
+  font-style:italic;
+  line-height:1.7;
+  color:var(--ink);
+  margin-bottom:20px;
+}
+
+.review-author{
+  display:flex;align-items:center;gap:12px;
+}
+
+.review-avatar{
+  width:40px;height:40px;
+  border-radius:50%;
+  background:var(--rose-pale);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.8rem;
+  color:var(--rose);
+  flex-shrink:0;
+}
+
+.review-name{font-weight:600;font-size:0.88rem;color:var(--ink)}
+.review-role{font-size:0.75rem;color:var(--muted)}
+
+/* ── VÍDEOS ── */
+.videos-bg{
+  background:var(--rose-pale);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
 }
 
 .videos-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:24px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
 }
 
 .video-card{
-background:#fff;
-border-radius:24px;
-overflow:hidden;
-box-shadow:0 18px 45px rgba(0,0,0,.08);
-transition:.4s;
-border:1px solid #eee;
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 12px 40px rgba(139,10,60,0.08);
+  border:1px solid var(--border);
+  transition:transform 0.4s, box-shadow 0.4s;
 }
 
 .video-card:hover{
-transform:translateY(-8px);
-box-shadow:0 25px 60px rgba(0,0,0,.15);
+  transform:translateY(-6px);
+  box-shadow:0 24px 60px rgba(139,10,60,0.15);
 }
 
 .video-wrap{
-position:relative;
-padding-bottom:56.25%;
-height:0;
-overflow:hidden;
-background:#000;
+  position:relative;
+  padding-bottom:56.25%;
+  height:0;
+  background:#111;
 }
 
 .video-wrap iframe{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  border:none;
 }
 
-.video-info{
-padding:22px;
-}
+.video-info{padding:24px}
 
 .video-info h3{
-font-size:22px;
-margin-bottom:10px;
-color:#7a0f2a;
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;font-weight:700;
+  color:var(--rose);margin-bottom:8px;
 }
 
-.video-info p{
-font-size:15px;
-line-height:1.6;
-color:#64748b;
+.video-info p{font-size:0.85rem;color:var(--muted);line-height:1.6}
+
+/* ── COTAÇÃO ── */
+.cotacao-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+  align-items:start;
 }
 
-/* RESPONSIVO */
+.cotacao-info{}
+
+.cotacao-info h2{text-align:left;margin-bottom:16px}
+
+.cotacao-info p{
+  font-size:0.95rem;color:var(--muted);
+  line-height:1.8;margin-bottom:32px;
+}
+
+.contact-list{
+  list-style:none;
+  display:flex;flex-direction:column;gap:16px;
+}
+
+.contact-list li{
+  display:flex;align-items:center;gap:14px;
+  font-size:0.9rem;
+  color:var(--ink);
+}
+
+.contact-icon{
+  width:40px;height:40px;
+  border-radius:12px;
+  background:var(--rose-pale);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+
+.form-card{
+  background:#fff;
+  border:1px solid var(--border-gold);
+  border-radius:28px;
+  padding:40px 36px;
+  box-shadow:0 24px 64px rgba(139,10,60,0.08);
+}
+
+.form-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;font-weight:700;
+  color:var(--ink);
+  margin-bottom:28px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.form-group{
+  display:flex;flex-direction:column;gap:6px;
+}
+
+.form-group.full{grid-column:1/-1}
+
+.form-label{
+  font-size:0.73rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.form-input,
+.form-select,
+.form-textarea{
+  padding:14px 16px;
+  border:1.5px solid rgba(139,10,60,0.12);
+  border-radius:12px;
+  font-family:'Outfit',sans-serif;
+  font-size:0.95rem;
+  color:var(--ink);
+  background:#fafafa;
+  outline:none;
+  transition:border-color 0.3s, background 0.3s;
+  resize:none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus{
+  border-color:var(--rose);
+  background:#fff;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder{color:#c4abb3}
+
+.form-textarea{min-height:90px}
+
+.form-submit{
+  width:100%;
+  padding:17px;
+  background:var(--rose);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  font-family:'Outfit',sans-serif;
+  font-size:0.92rem;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow:0 10px 30px rgba(139,10,60,0.25);
+  margin-top:8px;
+  grid-column:1/-1;
+}
+
+.form-submit:hover{
+  background:var(--rose-light);
+  transform:translateY(-2px);
+  box-shadow:0 16px 40px rgba(139,10,60,0.35);
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);
+  color:rgba(255,255,255,0.5);
+  padding:48px 5vw 32px;
+}
+
+.footer-inner{
+  max-width:1300px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:32px;
+  align-items:center;
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding-top:32px;
+}
+
+.footer-brand{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:6px;
+}
+
+.footer-tagline{font-size:0.8rem;letter-spacing:0.05em}
+
+.footer-copy{
+  font-size:0.75rem;
+  margin-top:20px;
+  color:rgba(255,255,255,0.3);
+}
+
+.social-links{
+  display:flex;gap:12px;
+}
+
+.social-link{
+  width:44px;height:44px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.5);
+  text-decoration:none;
+  transition:all 0.3s;
+}
+
+.social-link:hover{
+  background:var(--rose);
+  border-color:var(--rose);
+  color:#fff;
+  transform:translateY(-3px);
+}
+
+.social-link svg{width:18px;height:18px;fill:currentColor}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{
+  position:fixed;
+  bottom:24px;right:24px;
+  width:60px;height:60px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 35px rgba(0,0,0,0.3);
+  z-index:300;
+  text-decoration:none;
+  animation:floatPulse 2.5s ease-in-out infinite;
+  transition:transform 0.3s;
+}
+
+.wa-float:hover{transform:scale(1.1)}
+
+@keyframes floatPulse{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+/* ── CHAT ── */
+.chat-trigger{
+  position:fixed;
+  bottom:96px;right:24px;
+  width:52px;height:52px;
+  border-radius:50%;
+  background:var(--rose);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 28px rgba(139,10,60,0.4);
+  cursor:pointer;
+  z-index:300;
+  font-size:22px;
+  border:none;
+  transition:transform 0.3s, background 0.3s;
+}
+
+.chat-trigger:hover{background:var(--rose-light);transform:scale(1.08)}
+
+.chat-box{
+  position:fixed;
+  bottom:168px;right:24px;
+  width:340px;
+  background:#fff;
+  border-radius:24px;
+  box-shadow:0 24px 64px rgba(0,0,0,0.22);
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  z-index:300;
+  border:1px solid var(--border);
+}
+
+.chat-box.open{display:flex}
+
+.chat-header{
+  background:linear-gradient(135deg,var(--rose),var(--rose-light));
+  color:#fff;
+  padding:16px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.chat-user{display:flex;align-items:center;gap:12px}
+
+.chat-avatar{
+  width:40px;height:40px;border-radius:50%;
+  overflow:hidden;
+  background:rgba(255,255,255,0.2);
+  flex-shrink:0;
+}
+
+.chat-avatar img{width:100%;height:100%;object-fit:cover}
+
+.chat-name{font-weight:700;font-size:0.95rem}
+.chat-status{font-size:0.72rem;opacity:0.85;display:flex;align-items:center;gap:5px}
+
+.chat-close{
+  background:none;border:none;color:rgba(255,255,255,0.8);
+  cursor:pointer;font-size:18px;
+  transition:color 0.2s;
+}
+
+.chat-close:hover{color:#fff}
+
+.chat-messages{
+  flex:1;min-height:220px;max-height:280px;
+  overflow-y:auto;
+  padding:16px;
+  display:flex;flex-direction:column;gap:10px;
+  background:#f8f4f6;
+}
+
+.msg{
+  padding:10px 14px;
+  border-radius:14px;
+  max-width:82%;
+  font-size:0.875rem;
+  line-height:1.5;
+}
+
+.bot{
+  background:#fff;
+  color:var(--ink);
+  align-self:flex-start;
+  border:1px solid var(--border);
+  border-radius:4px 14px 14px 14px;
+}
+
+.user{
+  background:var(--rose);
+  color:#fff;
+  align-self:flex-end;
+  border-radius:14px 4px 14px 14px;
+}
+
+.msg.typing{opacity:0.6;font-style:italic}
+
+.chat-input-row{
+  display:flex;
+  border-top:1px solid var(--border);
+  background:#fff;
+}
+
+.chat-input-row input{
+  flex:1;padding:14px 16px;
+  border:none;outline:none;
+  font-family:'Outfit',sans-serif;
+  font-size:0.9rem;
+  color:var(--ink);
+  background:transparent;
+}
+
+.chat-send{
+  background:var(--rose);
+  color:#fff;
+  border:none;
+  padding:0 18px;
+  cursor:pointer;
+  font-size:18px;
+  transition:background 0.3s;
+}
+
+.chat-send:hover{background:var(--rose-light)}
+
+/* ── ANIMAÇÕES SCROLL ── */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ── RESPONSIVE ── */
 @media(max-width:1024px){
-
-.videos-grid{
-grid-template-columns:1fr;
+  .cards-grid,.reviews-grid,.videos-grid,.ops-grid{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr;gap:40px;padding:60px 5vw}
+  .cotacao-wrap{grid-template-columns:1fr}
+  .planos-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
 }
 
-.videos-section{
-padding:24px;
+@media(max-width:768px){
+  nav{padding:0 4vw}
+  .nav-links{display:none}
+  .form-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.2rem}
+  .footer-inner{grid-template-columns:1fr;text-align:center}
+  .social-links{justify-content:center}
 }
-
-.videos-section h2{
-font-size:32px;
-}
-
-}
-
 </style>
 </head>
-
-<!-- BOTÃO -->
-<div class="chat-btn" onclick="toggleChat()">💬</div>
-
-<!-- CHAT -->
-<div class="chat-box" id="chatBox">
-
-  <div class="chat-header">
-    <div class="chat-user">
-      <img src="img/miriam--logo.webp">
-      <div>
-        <strong>Miriam Lins ✔</strong>
-        <span class="online">online agora</span>
-      </div>
-    </div>
-    <span onclick="toggleChat()">✖</span>
-  </div>
-
-  <div class="chat-messages" id="chatMessages"></div>
-
-  <div class="chat-input">
-    <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
-    <button onclick="sendMessage()">➤</button>
-  </div>
-
-</div>
-
-
-
-<!--AQUI COMEÇA O HTML-->
 <body>
 
-    <canvas id="particles"></canvas>
-    
-<div class="container">
-<header>
-
-  <!-- MENU TOPO -->
-<nav class="top-menu">
-
-<a href="#cotacao">Cotação</a>
-
-<a href="servicos.html">Serviços</a>
-
-<a href="#contato">Contato</a>
-
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-avatar">
+      <img src="img/miriam--logo.webp" alt="Miriam Lins" onerror="this.style.display='none'">
+    </div>
+    <div>
+      <div class="nav-name">Miriam Lins</div>
+      <div class="nav-role"><span class="online-dot"></span>Online agora</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#diferenciais">Diferenciais</a></li>
+    <li><a href="#planos">Planos</a></li>
+    <li><a href="#videos">Conteúdo</a></li>
+    <li><a href="#cotacao">Cotação</a></li>
+    <li><a class="nav-cta" href="https://wa.me/5521965987968" target="_blank">Falar agora →</a></li>
+  </ul>
 </nav>
 
-
-<div class="logo-wrap">
-  <div class="insta-border">
-    <div class="status-wrap">
-      <img src="img/miriam--logo.webp" class="logo-img">
-      <span class="status-dot"></span>
-    </div>
-  </div>
-
-  <div class="logo"><span>Miriam Lins</span></div>
-  <div class="status-text">Online agora</div>
-</div>
-<a class="navbtn" href="https://wa.me/5521965987968">Atendimento Executivo</a>
-</header>
-
-<!-- BANNER -->
-<div class="top-banner">
-<span id="typing"></span><span class="cursor">|</span>
+<!-- TYPING BANNER -->
+<div class="typing-banner">
+  <span id="typing-text"></span><span class="cursor"></span>
 </div>
 
-<!-- CARROSSEL PREMIUM -->
-<div class="ads-carousel">
-  <div class="ads-track">
-    
-    <div class="ad">
-      <img src="img/banner-assim.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/banner-assim-02.png">
-      <div class="ad-text"></div>
-    </div>
-    
-    <div class="ad">
-      <img src="img/ad-miriam-3.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/ad-miriam-4.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/miriam-dia-das-maes-03.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <!-- duplicado para efeito infinito -->
-
-    <div class="ad">
-      <img src="img/banner-assim.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/banner-assim-02.png">
-      <div class="ad-text"></div>
-    </div>
-    
-    <div class="ad">
-      <img src="img/ad-miriam-3.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/ad-miriam-4.png">
-      <div class="ad-text"></div>
-    </div>
-
-    <div class="ad">
-      <img src="img/miriam-dia-das-maes-01.png">
-      <div class="ad-text"></div>
-    </div>
-
-    
-
+<!-- ADS STRIP -->
+<div class="ads-strip">
+  <div class="ads-track" id="adsTrack">
+    <div class="ad-item"><img src="img/banner-assim.png" alt="Banner Assim" onerror="this.parentElement.style.background='linear-gradient(135deg,#fff0f5,#fdf8f2)';this.style.display='none'"></div>
+    <div class="ad-item"><img src="img/banner-assim-02.png" alt="Banner 2" onerror="this.parentElement.style.background='linear-gradient(135deg,#fff0f5,#fdf8f2)';this.style.display='none'"></div>
+    <div class="ad-item"><img src="img/ad-miriam-3.png" alt="Banner 3" onerror="this.parentElement.style.background='linear-gradient(135deg,#fff0f5,#fdf8f2)';this.style.display='none'"></div>
+    <div class="ad-item"><img src="img/ad-miriam-4.png" alt="Banner 4" onerror="this.parentElement.style.background='linear-gradient(135deg,#fff0f5,#fdf8f2)';this.style.display='none'"></div>
+    <div class="ad-item"><img src="img/miriam-dia-das-maes-03.png" alt="Banner 5" onerror="this.parentElement.style.background='linear-gradient(135deg,#fff0f5,#fdf8f2)';this.style.display='none'"></div>
+    <!-- duplicado -->
+    <div class="ad-item"><img src="img/banner-assim.png" alt="" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ad-item"><img src="img/banner-assim-02.png" alt="" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ad-item"><img src="img/ad-miriam-3.png" alt="" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ad-item"><img src="img/ad-miriam-4.png" alt="" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ad-item"><img src="img/miriam-dia-das-maes-01.png" alt="" onerror="this.parentElement.style.display='none'"></div>
   </div>
 </div>
 
-<!-- SESSÃO DE VÍDEOS PREMIUM -->
-<section class="videos-section">
-
-<h2>Conheça os Benefícios dos Planos</h2>
-
-<p class="videos-subtitle">
-Assista aos vídeos e descubra qual plano combina mais com você.
-</p>
-
-<div class="videos-grid">
-
-<div class="video-card">
-
-<div class="video-wrap">
-<iframe 
-src="videos/planos-dicas.mp4" 
-title="Plano de Saúde Premium"
-frameborder="0"
-allowfullscreen>
-</iframe>
-</div>
-
-<div class="video-info">
-<h3>7 dicas para contratar plano de saúde</h3>
-<p>O que você deve saber antes de contratar um plano médico.</p>
-</div>
-
-</div>
-
-<div class="video-card">
-
-<div class="video-wrap">
-<iframe 
-src="videos/animacao-planos01.mp4" 
-title="Plano Familiar"
-frameborder="0"
-allowfullscreen>
-</iframe>
-</div>
-
-<div class="video-info">
-<h3>Em manutenção!</h3>
-<p>Pedimos desculpas pelo transtorno, estamos em desenvolvimento.</p>
-</div>
-
-</div>
-
-<div class="video-card">
-
-<div class="video-wrap">
-<iframe 
-src="videos/animacao-planos.mp4" 
-title="Plano PME"
-frameborder="0"
-allowfullscreen>
-</iframe>
-</div>
-
-<div class="video-info">
-<h3>Em manutenção!</h3>
-<p>Pedimos desculpas pelo transtorno, estamos em desenvolvimento.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
+<!-- HERO -->
 <section class="hero">
-<div>
-<div class="badge">Consultoria Premium em Planos de Saúde • Rio de Janeiro</div>
-<h1>Estratégia inteligente para contratar o melhor plano de saúde</h1>
-<p>Atendimento consultivo para famílias, adesão, PME e pjotinha a partir de uma Vida. Comparação premium entre Amil, Bradesco Saúde, SulAmérica e Assim.</p>
-<a class="btn" href="https://wa.me/5521965987968">SOLICITAR COTAÇÃO VIP</a>
-<div class="stats">
-<div class="stat"><div class="n">5+</div>Operadoras líderes</div>
-<div class="stat"><div class="n">100%</div>Suporte consultivo</div>
-<div class="stat"><div class="n">Rápido</div>Retorno imediato</div>
-</div>
-</div>
-<div class="photo">
-  <div class="carousel">
-    <img src="img/miriam-dia-das-maes-03.png" class="active">
-    <img src="img/banner-assim.png">
-    <img src="img/banner-assim-02.png">
-    <img src="img/assim-saude.jpg">
-    <img src="img/ad-miriam-3.png">
-    <img src="img/ad-miriam-4.png">
-    
+  <div>
+    <div class="hero-eyebrow">✦ Consultoria Premium · Rio de Janeiro</div>
+    <h1>O plano de saúde <em>certo</em> para cada fase da sua vida</h1>
+    <p class="hero-desc">Atendimento consultivo e personalizado para famílias, PME, pjotinha e adesão. Comparamos as melhores operadoras para você pagar menos e ter mais cobertura.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://wa.me/5521965987968" target="_blank">Solicitar cotação gratuita →</a>
+      <a class="btn-secondary" href="#cotacao">Simular plano</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <span class="n">5+</span>
+        <span>Operadoras</span>
+      </div>
+      <div class="stat-box">
+        <span class="n">100%</span>
+        <span>Consultivo</span>
+      </div>
+      <div class="stat-box">
+        <span class="n">Rápido</span>
+        <span>Retorno</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-wrap">
+      <div class="carousel" id="heroCarousel">
+        <img src="img/miriam-dia-das-maes-03.png" class="active" alt="Miriam Lins">
+        <img src="img/banner-assim.png" alt="Assim Saúde">
+        <img src="img/banner-assim-02.png" alt="Banner">
+        <img src="img/assim-saude.jpg" alt="Assim">
+        <img src="img/ad-miriam-3.png" alt="Planos">
+        <img src="img/ad-miriam-4.png" alt="Planos">
+      </div>
+    </div>
+    <div class="hero-badge">★ Especialista em planos de saúde</div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<div class="diferenciais-bg" id="diferenciais">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-label">Por que me escolher</span>
+      <h2>Consultoria que faz a diferença</h2>
+      <p class="section-sub">Mais do que vender um plano, analiso o que faz sentido para o seu perfil e bolso.</p>
+    </div>
+    <div class="section-divider"></div>
+    <div class="cards-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">🔍</div>
+        <h3>Análise Estratégica</h3>
+        <p>Avaliação completa de preço, rede credenciada, carências e custo-benefício alinhada ao seu perfil e necessidades.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🤝</div>
+        <h3>Atendimento Discreto</h3>
+        <p>Processo rápido, seguro e profissional do primeiro contato até o fechamento. Sem pressão, sem pressa.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🏆</div>
+        <h3>Resultado Superior</h3>
+        <p>Mais cobertura e menos custo com uma decisão inteligente, baseada em comparação real entre as operadoras.</p>
+      </div>
+    </div>
   </div>
 </div>
-</section>
-<section>
-<h2>Por que clientes exigentes escolhem Miriam</h2>
-<div class="grid">
-<div class="card"><strong>Análise Estratégica</strong>Preço, rede credenciada, carência e custo-benefício alinhados ao seu perfil.</div>
-<div class="card"><strong>Atendimento Discreto</strong>Processo rápido, seguro e profissional do início ao fechamento.</div>
-<div class="card"><strong>Resultado Superior</strong>Mais economia e melhor cobertura com decisão inteligente.</div>
-</div>
-</section>
-<section>
-<h2>Operadoras Premium</h2>
-<div class="operadoras"><div class="mini">Amil</div><div class="mini">Bradesco</div><div class="mini">SulAmérica</div><div class="mini">Assim</div><div class="mini">Porto Seguro</div></div>
-</section>
-<section>
-<h2>Soluções Disponíveis</h2>
-<div class="planwrap">
-<div class="plan"><h3>Individual, Familiar & Adesão</h3><br>Proteção completa para quem valoriza tranquilidade.</div>
-<div class="plan"><h3>PME & Empresarial</h3><br>Benefício estratégico para empresas que pensam grande.</div>
-</div>
-</section>
-<section>
-<h2>Clientes Recomendam</h2>
-<div class="grid">
-<div class="card"><strong>★★★★★ Mariana Costa</strong>Consegui um plano melhor pagando menos. Atendimento impecável.</div>
-<div class="card"><strong>★★★★★ Rafael Mendes</strong>Fechei o plano da minha empresa rápido e sem burocracia.</div>
-<div class="card"><strong>★★★★★ Juliana Freitas</strong>Miriam explicou tudo com clareza e encontrou a melhor opção.</div>
-</div>
-</section>
-<section id="cotacao">
-<h2>Simule sua Cotação</h2>
-<div class="cta" style="margin-bottom:28px">
-<form onsubmit="enviarCotacao(event)" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;width:100%">
-<input id="nome" placeholder="Seu nome" required style="padding:16px;border-radius:14px;border:1px solid #ddd;font-size:16px">
-<input id="idade" placeholder="Idade" required style="padding:16px;border-radius:14px;border:1px solid #ddd;font-size:16px">
-<select id="tipo" style="padding:16px;border-radius:14px;border:1px solid #ddd;font-size:16px"><option>Selecione</option><option>Familiar</option><option>PME</option><option>Empresarial</option><option>Adesão</option></select>
-<input id="vidas" placeholder="Qtd. vidas" required style="padding:16px;border-radius:14px;border:1px solid #ddd;font-size:16px">
-<textarea id="idades" placeholder="Idades das vidas (ex: 32, 28, 5)" required style="grid-column:1/-1;padding:16px;border-radius:14px;border:1px solid #ddd;font-size:16px;resize:vertical;min-height:80px"></textarea>
-<button class="btn" type="submit" style="grid-column:1/-1;border:none;cursor:pointer;width:100%;text-align:center;white-space:normal;padding:18px 20px">SIMULAR NO WHATSAPP</button>
-</form>
-</div>
-</section>
-<section class="cta">
-<h2>Receba uma proposta exclusiva</h2>
-<p><strong>Miriam Lins</strong> • Rio de Janeiro - RJ<br>WhatsApp: 21 96598-7968</p><br>
-<a class="btn" href="https://wa.me/5521965987968">FALAR COM ESPECIALISTA</a>
-</section>
 
-<section id="contato"> 
+<!-- OPERADORAS -->
+<div class="section">
+  <div class="section-header reveal">
+    <span class="section-label">Parceiras</span>
+    <h2>Operadoras Premium</h2>
+    <p class="section-sub">Trabalho com as principais operadoras do mercado para garantir a melhor opção para você.</p>
+  </div>
+  <div class="section-divider"></div>
+  <div class="ops-grid reveal">
+    <div class="op-card">Amil</div>
+    <div class="op-card">Bradesco Saúde</div>
+    <div class="op-card">SulAmérica</div>
+    <div class="op-card">Assim</div>
+    <div class="op-card">Porto Seguro</div>
+  </div>
+</div>
+
+<!-- PLANOS -->
+<div class="planos-bg" id="planos">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-label" style="color:var(--gold-light)">Soluções</span>
+      <h2 style="color:#fff">Para cada momento da vida</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.55)">Seja pessoa física, família ou empresa — encontro o plano ideal para você.</p>
+    </div>
+    <div class="section-divider" style="background:linear-gradient(90deg,var(--gold),var(--gold-light))"></div>
+    <div class="planos-grid">
+      <div class="plano-card reveal">
+        <div class="plano-tag">Para pessoas e famílias</div>
+        <h3>Individual, Familiar & Adesão</h3>
+        <p>Proteção completa para quem valoriza tranquilidade. Planos a partir de uma vida com cobertura nacional.</p>
+        <ul class="plano-items">
+          <li>Cobertura nacional e regional</li>
+          <li>Planos com e sem coparticipação</li>
+          <li>Opções de carência reduzida</li>
+          <li>Inclusão de dependentes a qualquer momento</li>
+        </ul>
+      </div>
+      <div class="plano-card reveal">
+        <div class="plano-tag">Para empresas</div>
+        <h3>PME & Empresarial</h3>
+        <p>Benefício estratégico para empresas que pensam grande. Pjotinha a partir de uma vida.</p>
+        <ul class="plano-items">
+          <li>PME de 2 a 99 vidas</li>
+          <li>Pjotinha (MEI e EIRELI) a partir de 1 vida</li>
+          <li>Cobertura ampla para equipes</li>
+          <li>Suporte completo para RH</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEPOIMENTOS -->
+<div class="section">
+  <div class="section-header reveal">
+    <span class="section-label">Clientes</span>
+    <h2>Quem já confiou na Miriam</h2>
+    <p class="section-sub">Resultados reais para quem escolheu o caminho certo na contratação do plano de saúde.</p>
+  </div>
+  <div class="section-divider"></div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Consegui um plano muito melhor do que tinha antes e ainda paguei menos. O atendimento foi impecável do início ao fim."</p>
+      <div class="review-author">
+        <div class="review-avatar">MC</div>
+        <div>
+          <div class="review-name">Mariana Costa</div>
+          <div class="review-role">Plano Familiar</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Fechei o plano da minha empresa de forma rápida e sem nenhuma burocracia. Recomendo para qualquer empreendedor."</p>
+      <div class="review-author">
+        <div class="review-avatar">RM</div>
+        <div>
+          <div class="review-name">Rafael Mendes</div>
+          <div class="review-role">PME — 8 vidas</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"A Miriam explicou tudo com uma clareza incrível e encontrou exatamente o que eu precisava. Profissional excepcional."</p>
+      <div class="review-author">
+        <div class="review-avatar">JF</div>
+        <div>
+          <div class="review-name">Juliana Freitas</div>
+          <div class="review-role">Plano Individual</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VÍDEOS -->
+<div class="videos-bg" id="videos">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-label">Conteúdo</span>
+      <h2>Conheça os Benefícios</h2>
+      <p class="section-sub">Assista e descubra qual plano combina mais com o seu momento de vida.</p>
+    </div>
+    <div class="section-divider"></div>
+    <div class="videos-grid">
+      <div class="video-card reveal">
+        <div class="video-wrap">
+          <iframe src="videos/planos-dicas.mp4" title="7 dicas para contratar plano de saúde" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>7 dicas para contratar plano de saúde</h3>
+          <p>O que você deve saber antes de contratar um plano médico para não errar na escolha.</p>
+        </div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-wrap">
+          <iframe src="videos/animacao-planos01.mp4" title="Plano Familiar" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Plano Familiar — Como funciona</h3>
+          <p>Em breve. Estamos preparando um conteúdo especial sobre planos familiares.</p>
+        </div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-wrap">
+          <iframe src="videos/animacao-planos.mp4" title="PME" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Plano PME — Benefícios para empresas</h3>
+          <p>Em breve. Conteúdo completo sobre benefícios empresariais de saúde.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COTAÇÃO -->
+<div id="cotacao">
+  <div class="section">
+    <div class="cotacao-wrap">
+      <div class="cotacao-info reveal">
+        <span class="section-label">Cotação</span>
+        <h2>Simule seu plano agora</h2>
+        <p>Preencha o formulário e receba uma proposta personalizada diretamente no seu WhatsApp, sem compromisso.</p>
+        <ul class="contact-list">
+          <li><div class="contact-icon">📱</div><span><strong>WhatsApp:</strong> (21) 96598-7968</span></li>
+          <li><div class="contact-icon">📍</div><span>Rio de Janeiro — RJ</span></li>
+          <li><div class="contact-icon">🕐</div><span>Atendimento rápido e personalizado</span></li>
+        </ul>
+      </div>
+      <div class="form-card reveal">
+        <h3>Solicitar cotação gratuita</h3>
+        <form onsubmit="enviarCotacao(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Nome completo</label>
+              <input class="form-input" id="nome" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Sua idade</label>
+              <input class="form-input" id="idade" placeholder="Ex: 34" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tipo de plano</label>
+              <select class="form-select" id="tipo">
+                <option value="">Selecione</option>
+                <option>Familiar</option>
+                <option>Individual</option>
+                <option>PME</option>
+                <option>Empresarial</option>
+                <option>Adesão</option>
+                <option>Pjotinha</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Qtd. de vidas</label>
+              <input class="form-input" id="vidas" placeholder="Ex: 3" required>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Idades das vidas</label>
+              <textarea class="form-textarea" id="idades" placeholder="Ex: 34, 30, 5 anos"></textarea>
+            </div>
+            <button class="form-submit" type="submit">Simular no WhatsApp →</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
 <footer>
-© 2026 Desenvolvido por ECALLAW • Todos os direitos reservados a Miriam Lins&reg;
-
-<div class="social">
-
-<a href="https://www.instagram.com/miriamlinsplanosdesaude2023?igsh=ZWgzYWM5NzRpc3Jq" target="_blank">
-<svg viewBox="0 0 24 24">
-<path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.8A4.2 4.2 0 1 1 7.8 12 4.2 4.2 0 0 1 12 7.8zm6.2-1.5a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/>
-</svg>
-</a>
-
-<a href="https://www.facebook.com/share/1G97XXmCo2/?mibextid=wwXIfr" target="_blank">
-<svg viewBox="0 0 24 24">
-<path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-4 3.8-4 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.5.7-1.5 1.5V12H16l-.4 3h-2v7A10 10 0 0 0 22 12z"/>
-</svg>
-</a>
-
-<a href="https://linkedin.com" target="_blank">
-<svg viewBox="0 0 24 24">
-<path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9h4v12H3zm7 0h3.6v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6v6.3h-4v-5.6c0-1.3 0-3-1.8-3s-2 1.4-2 2.9v5.7h-4z"/>
-</svg>
-</a>
-
-<a href="https://wa.me/5521965987968" target="_blank">
-<svg viewBox="0 0 24 24">
-<path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.2A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4-1.1l-.3-.2-2.8.7.7-2.7-.2-.3A8 8 0 1 1 12 20zm4.3-5.6c-.2-.1-1.3-.6-1.5-.7s-.4-.1-.6.1-.7.7-.8.8-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.6-1.4-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.3 1 2.6 1.2 2.8a9.7 9.7 0 0 0 3.7 3.2c.5.2.9.3 1.2.4.5.2 1 .2 1.4.1.4-.1 1.3-.5 1.5-1s.2-.9.1-1-.2-.2-.4-.3z"/>
-</svg>
-</a>
-
-</div>
-
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Miriam Lins</div>
+      <div class="footer-tagline">Consultoria Executiva em Planos de Saúde</div>
+      <div class="footer-copy">© 2026 Desenvolvido por ECALLAW · Todos os direitos reservados a Miriam Lins®</div>
+    </div>
+    <div class="social-links">
+      <a class="social-link" href="https://www.instagram.com/miriamlinsplanosdesaude2023" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.8A4.2 4.2 0 1 1 7.8 12 4.2 4.2 0 0 1 12 7.8zm6.2-1.5a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/></svg>
+      </a>
+      <a class="social-link" href="https://www.facebook.com/share/1G97XXmCo2/" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-4 3.8-4 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.5.7-1.5 1.5V12H16l-.4 3h-2v7A10 10 0 0 0 22 12z"/></svg>
+      </a>
+      <a class="social-link" href="https://wa.me/5521965987968" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.2A10 10 0 1 0 12 2zm4.3 13.4c-.2-.1-1.3-.6-1.5-.7s-.4-.1-.6.1-.7.7-.8.8-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.6-1.4-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.3 1 2.6 1.2 2.8a9.7 9.7 0 0 0 3.7 3.2c.5.2.9.3 1.2.4.5.2 1 .2 1.4.1.4-.1 1.3-.5 1.5-1s.2-.9.1-1-.2-.2-.4-.3z"/></svg>
+      </a>
+    </div>
+  </div>
 </footer>
-</div>
-<a class="fixed" href="https://wa.me/5521965987968" target="_blank">
-<svg viewBox="0 0 24 24">
-<path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.2A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4-1.1l-.3-.2-2.8.7.7-2.7-.2-.3A8 8 0 1 1 12 20zm4.3-5.6c-.2-.1-1.3-.6-1.5-.7s-.4-.1-.6.1-.7.7-.8.8-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.6-1.4-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.3 1 2.6 1.2 2.8a9.7 9.7 0 0 0 3.7 3.2c.5.2.9.3 1.2.4.5.2 1 .2 1.4.1.4-.1 1.3-.5 1.5-1s.2-.9.1-1-.2-.2-.4-.3z"/>
-</svg>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/5521965987968" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.2A10 10 0 1 0 12 2zm4.3 13.4c-.2-.1-1.3-.6-1.5-.7s-.4-.1-.6.1-.7.7-.8.8-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.6-1.4-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.3 1 2.6 1.2 2.8a9.7 9.7 0 0 0 3.7 3.2c.5.2.9.3 1.2.4.5.2 1 .2 1.4.1.4-.1 1.3-.5 1.5-1s.2-.9.1-1-.2-.2-.4-.3z"/></svg>
 </a>
 
-<!--AQUI COMEÇA O JS-->
+<!-- CHAT TRIGGER -->
+<button class="chat-trigger" onclick="toggleChat()" aria-label="Abrir chat">💬</button>
+
+<!-- CHAT BOX -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    <div class="chat-user">
+      <div class="chat-avatar">
+        <img src="img/miriam--logo.webp" alt="Miriam" onerror="this.parentElement.innerHTML='ML'">
+      </div>
+      <div>
+        <div class="chat-name">Miriam Lins ✔</div>
+        <div class="chat-status"><span class="online-dot" style="width:7px;height:7px"></span>Online agora</div>
+      </div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="Digite sua mensagem..." onkeydown="if(event.key==='Enter')sendMsg()">
+    <button class="chat-send" onclick="sendMsg()">➤</button>
+  </div>
+</div>
+
 <script>
-function enviarCotacao(e){e.preventDefault();var nome=document.getElementById('nome').value;var idade=document.getElementById('idade').value;var tipo=document.getElementById('tipo').value;var vidas=document.getElementById('vidas').value;var idades=document.getElementById('idades').value;var msg='Olá Miriam, quero simular cotação.%0ANome: '+nome+'%0AIdade: '+idade+'%0ATipo: '+tipo+'%0AQuantidade de vidas: '+vidas+'%0AIdades das vidas: '+idades;window.open('https://wa.me/5521964463993?text='+msg,'_blank');}
+/* ── FORMULÁRIO ── */
+function enviarCotacao(e){
+  e.preventDefault();
+  const n=document.getElementById('nome').value;
+  const i=document.getElementById('idade').value;
+  const t=document.getElementById('tipo').value;
+  const v=document.getElementById('vidas').value;
+  const id=document.getElementById('idades').value;
+  const msg=`Olá Miriam! Gostaria de uma cotação:%0A%0A👤 Nome: ${n}%0A🎂 Idade: ${i}%0A📋 Tipo: ${t}%0A👥 Vidas: ${v}%0A📝 Idades: ${id}`;
+  window.open('https://wa.me/5521965987968?text='+msg,'_blank');
+}
 
-
-const slides = document.querySelectorAll('.carousel img');
-let index = 0;
-
+/* ── CARROSSEL ── */
+const slides=document.querySelectorAll('#heroCarousel img');
+let ci=0;
 setInterval(()=>{
-  slides[index].classList.remove('active');
-  index = (index + 1) % slides.length;
-  slides[index].classList.add('active');
-}, 3000);
+  slides[ci].classList.remove('active');
+  ci=(ci+1)%slides.length;
+  slides[ci].classList.add('active');
+},3200);
 
-/* DIGITAÇÃO */
+/* ── DIGITAÇÃO ── */
 const frases=[
-"Planos sob medida para você pagar menos.",
-"Atendimento exclusivo e consultivo.",
-"Mais cobertura, menos custo.",
-"Estou online agora, vamos fazer uma cotação?"
+  "Planos sob medida para você pagar menos.",
+  "Atendimento exclusivo e consultivo.",
+  "Mais cobertura, menos custo.",
+  "Estou online agora — vamos fazer uma cotação?"
 ];
-
-let i=0,j=0,apagando=false;
-const el=document.getElementById("typing");
-
+let fi=0,fj=0,apag=false;
+const tel=document.getElementById('typing-text');
 function digitar(){
-let texto=frases[i];
-
-if(!apagando){
-el.innerHTML=texto.substring(0,j++);
-if(j>texto.length){
-apagando=true;
-setTimeout(digitar,1500);
-return;
+  const txt=frases[fi];
+  if(!apag){tel.textContent=txt.substring(0,fj++);if(fj>txt.length){apag=true;setTimeout(digitar,1600);return;}}
+  else{tel.textContent=txt.substring(0,fj--);if(fj<0){apag=false;fi=(fi+1)%frases.length;}}
+  setTimeout(digitar,apag?38:68);
 }
-}else{
-el.innerHTML=texto.substring(0,j--);
-if(j<0){
-apagando=false;
-i=(i+1)%frases.length;
-}
-}
-
-setTimeout(digitar,apagando?40:70);
-}
-
 digitar();
 
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
+/* ── SCROLL REVEAL ── */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+/* ── CHAT ── */
+let etapa=0,nomeLead='',tipoPlano='';
 
-let particles = [];
-
-for(let i = 0; i < 60; i++){
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    size: Math.random() * 3 + 1,
-    speedY: Math.random() * 0.5 + 0.2,
-    speedX: Math.random() * 0.3 - 0.15
-  });
-}
-
-function animateParticles(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-
-  particles.forEach(p => {
-    p.y -= p.speedY;
-    p.x += p.speedX;
-
-    if(p.y < 0){
-      p.y = canvas.height;
-      p.x = Math.random() * canvas.width;
-    }
-
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(168, 85, 247, 0.25)";
-    ctx.fill();
-  });
-
-  requestAnimationFrame(animateParticles);
-}
-
-animateParticles();
-
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-
-const chat = document.getElementById("chatMessages");
-
-let etapa = 0;
-let nomeLead = "";
-
-/* ABERTURA AUTOMÁTICA */
 setTimeout(()=>{
-if(!localStorage.getItem("chatOpened")){
-toggleChat();
-botStart();
-localStorage.setItem("chatOpened", true);
-}
-},4000);
+  if(!sessionStorage.getItem('chatOpened')){
+    toggleChat();botStart();
+    sessionStorage.setItem('chatOpened','1');
+  }
+},5000);
 
 function toggleChat(){
-const box = document.getElementById("chatBox");
-box.style.display = box.style.display === "flex" ? "none" : "flex";
+  const b=document.getElementById('chatBox');
+  b.classList.toggle('open');
 }
 
-function addMessage(text, type){
-const div = document.createElement("div");
-div.className = "msg " + type;
-div.innerText = text;
-chat.appendChild(div);
-chat.scrollTop = chat.scrollHeight;
+function addMsg(text,tipo){
+  const msgs=document.getElementById('chatMessages');
+  const d=document.createElement('div');
+  d.className='msg '+tipo;
+  if(typeof text==='string') d.textContent=text;
+  else msgs.appendChild(text),msgs.scrollTop=msgs.scrollHeight;
+  if(typeof text==='string'){msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
 }
 
-function typing(){
-const div = document.createElement("div");
-div.className = "msg bot typing";
-div.id = "typing";
-div.innerText = "digitando...";
-chat.appendChild(div);
-chat.scrollTop = chat.scrollHeight;
+function showTyping(){
+  const msgs=document.getElementById('chatMessages');
+  const d=document.createElement('div');
+  d.className='msg bot typing';d.id='typingMsg';d.textContent='digitando…';
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
 }
 
-function removeTyping(){
-const el = document.getElementById("typing");
-if(el) el.remove();
+function hideTyping(){
+  const e=document.getElementById('typingMsg');if(e)e.remove();
 }
 
-/* INÍCIO CORRIGIDO */
 function botStart(){
-setTimeout(()=>{
-typing();
-
-setTimeout(()=>{
-removeTyping();
-addMessage("Oi 👋 Sou a Miriam! Como posso te chamar?", "bot");
-},1200);
-
-},800);
+  setTimeout(()=>{
+    showTyping();
+    setTimeout(()=>{hideTyping();addMsg('Oi! 👋 Sou a Miriam. Como posso te chamar?','bot');},1200);
+  },700);
 }
 
-/* ENVIO */
-function sendMessage(){
-const input = document.getElementById("chatInput");
-const msg = input.value.trim();
-if(!msg) return;
-
-addMessage(msg,"user");
-input.value="";
-
-setTimeout(()=>responder(msg),1000);
+function sendMsg(){
+  const inp=document.getElementById('chatInput');
+  const msg=inp.value.trim();if(!msg)return;
+  addMsg(msg,'user');inp.value='';
+  setTimeout(()=>responder(msg),900);
 }
 
-/* =========================
-   FLUXO INTELIGENTE
-========================= */
 function responder(msg){
-typing();
-
-setTimeout(()=>{
-removeTyping();
-
-if(etapa === 0){
-nomeLead = msg;
-
-addMessage("Prazer, "+nomeLead+" 😊 Você busca plano individual, empresarial, familiar, PME, Pjotinha ou adesão?", "bot");
-etapa = 1;
+  showTyping();
+  setTimeout(()=>{
+    hideTyping();
+    if(etapa===0){
+      nomeLead=msg;
+      addMsg(`Prazer, ${nomeLead}! 😊 Você busca plano individual, familiar, PME, pjotinha ou adesão?`,'bot');
+      etapa=1;
+    } else if(etapa===1){
+      tipoPlano=msg;
+      addMsg('Perfeito! Quantas vidas seriam aproximadamente?','bot');
+      etapa=2;
+    } else if(etapa===2){
+      const vidasN=msg;
+      addMsg('Ótimo! Montei sua pré-cotação 👇','bot');
+      setTimeout(()=>{
+        const msgs=document.getElementById('chatMessages');
+        const lk=document.createElement('a');
+        lk.href=`https://wa.me/5521965987968?text=Olá Miriam, quero cotação:%0ANome: ${nomeLead}%0ATipo: ${tipoPlano}%0AVidas: ${vidasN}`;
+        lk.target='_blank';lk.textContent='Receber cotação no WhatsApp →';
+        lk.style.cssText='display:block;margin-top:8px;color:#25d366;font-weight:700;font-size:0.875rem;text-decoration:none;';
+        const wrap=document.createElement('div');wrap.className='msg bot';wrap.appendChild(lk);
+        msgs.appendChild(wrap);msgs.scrollTop=msgs.scrollHeight;
+        etapa=3;
+      },1200);
+    } else {
+      addMsg('Clique no link acima para continuar no WhatsApp 😉','bot');
+    }
+  },1400);
 }
-
-else if(etapa === 1){
-tipoPlano = msg;
-
-addMessage("Perfeito! Quantas vidas seriam aproximadamente?", "bot");
-etapa = 2;
-}
-
-else if(etapa === 2){
-vidasPlano = msg;
-
-addMessage("Ótimo! Já montei sua pré-cotação 👇", "bot");
-
-setTimeout(()=>{
-
-addMessage("👉 Clique abaixo para receber sua cotação completa no WhatsApp:", "bot");
-
-let mensagem = `Olá Miriam, quero cotação:%0A
-Nome: ${nomeLead}%0A
-Tipo: ${tipoPlano}%0A
-Quantidade de vidas: ${vidasPlano}`;
-
-const link = document.createElement("a");
-link.href = "https://wa.me/5521965987968?text=" + mensagem;
-link.target = "_blank";
-link.innerText = "Receber cotação no WhatsApp";
-link.style.display = "block";
-link.style.marginTop = "8px";
-link.style.color = "#25d366";
-link.style.fontWeight = "bold";
-
-chat.appendChild(link);
-
-},1200);
-
-etapa = 3;
-}
-
-else{
-addMessage("Clique no botão acima para continuar no WhatsApp 😉", "bot");
-}
-
-},1500);
-}
-
 </script>
 </body>
 </html>
